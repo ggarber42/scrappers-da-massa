@@ -2,7 +2,7 @@ import requests, bs4, re
 
 if __name__ == '__main__':
     URL = 'https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83MTBiOTk4L3BvZGNhc3QvcnNz?hl=pt-br'
-    pattern = r'Livros citados no episódio:(.*?)Nossas redes'
+    pattern = r'(?:Livros citados no episódio:|Livros citados:|citadas:)(.*?)(?=Nossas redes|$)'
     file = open('livros_recomendados.txt', "w")
     try:
         res = requests.get(URL)
